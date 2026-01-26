@@ -1,0 +1,9 @@
+@use "fonts" as f;
+
+:root {
+  --mainFont: #{f.$mainFont};
+}
+
+body {
+  font-family: var(--mainFont);
+}

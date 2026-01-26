@@ -1,5 +1,5 @@
-$color: red;
+@use "vendors/modern-normalize.css";
 
-body {
-  background-color: $color;
-}
+@use "partials/globals";
+
+@use "components/container";
