@@ -1,13 +1,18 @@
 @use "../partials/functions" as f;
 @layer components {
   .bioCard {
+    --bg-color: var(--darkBlue);
+    @media (prefers-color-scheme: dark) {
+      --bg-color: var(--white);
+    }
     width: f.rem(320);
     padding: f.rem(32);
     border-radius: f.rem(16);
-    background-color: var(--darkBlue);
+    background-color: var(--bg-color);
     color: var(--blue);
     position: relative;
     text-align: center;
+    overflow: hidden;
     // classe d'élément
     &__header {
       position: absolute;
@@ -49,10 +54,19 @@
       margin-bottom: f.rem(48);
     }
     &__footer {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        inset: f.rem(-32) f.rem(-32) f.rem(-60);
+        background: linear-gradient(173deg, var(--orange), var(--pink) 75%);
+        transform: skewY(7deg);
+      }
     }
     &__footer__list {
       @include f.resetList;
       @include f.flexbox($justify: center, $align: center, $gap: f.rem(24));
+      position: relative;
     }
     &__link {
       aspect-ratio: 1;

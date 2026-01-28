@@ -18,3 +18,14 @@ $colors: (
   "green": #00d5d5,
   "lightGreen": #00ffc2,
 );
+
+$agnosticColors: (
+  "body-bg-color": (
+    light: white,
+    dark: black,
+  ),
+  "body-text-color": (
+    light: black,
+    dark: white,
+  ),
+);
