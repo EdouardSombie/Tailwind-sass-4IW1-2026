@@ -1,0 +1,80 @@
+@use "../partials/functions" as f;
+@layer components {
+  .bioCard {
+    width: f.rem(320);
+    padding: f.rem(32);
+    border-radius: f.rem(16);
+    background-color: var(--darkBlue);
+    color: var(--blue);
+    position: relative;
+    text-align: center;
+    // classe d'élément
+    &__header {
+      position: absolute;
+      top: f.rem(16);
+      inset-inline: f.rem(16);
+      // utilisation d'un mixin flexbox
+      @include f.flexbox($justify: flex-end, $align: center);
+    }
+    &__image {
+      @include f.roundImage(f.rem(176));
+      filter: saturate(0);
+      margin-bottom: f.rem(24);
+    }
+    &__title {
+      font-size: f.rem(24);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-top: 0;
+      margin-bottom: f.rem(12);
+      @include f.textGradient(top, var(--orange), var(--pink));
+    }
+    &__subtitle {
+      font-size: f.rem(20);
+      font-weight: 400;
+      margin-top: 0;
+      margin-bottom: f.rem(24);
+    }
+    &__separator {
+      color: inherit;
+      border-top: solid thin currentColor;
+      border-bottom: none;
+      margin-top: 0;
+      margin-bottom: f.rem(16);
+    }
+    &__text {
+      font-size: f.rem(16);
+      line-height: normal;
+      margin-top: 0;
+      margin-bottom: f.rem(48);
+    }
+    &__footer {
+    }
+    &__footer__list {
+      @include f.resetList;
+      @include f.flexbox($justify: center, $align: center, $gap: f.rem(24));
+    }
+    &__link {
+      aspect-ratio: 1;
+      width: f.rem(32);
+      background-color: var(--white);
+      border-radius: 9999px;
+      @include f.flexbox($justify: center, $align: center);
+      svg {
+        height: f.rem(16);
+        path {
+          fill: var(--pink);
+        }
+      }
+      &--alt {
+        background: linear-gradient(var(--lightGreen), var(--green));
+        svg {
+          height: f.rem(24);
+          path {
+            fill: var(--black);
+          }
+        }
+      }
+    }
+  }
+}

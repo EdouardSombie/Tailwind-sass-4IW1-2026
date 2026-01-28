@@ -1,9 +1,22 @@
 @use "fonts" as f;
+@use "variables" as v;
 
-:root {
-  --mainFont: #{f.$mainFont};
-}
+@layer base {
+  :root {
+    --mainFont: #{f.$mainFont};
+    --spacing: #{v.$spacing};
+    @each $name, $value in v.$colors {
+      --#{$name}: #{$value};
+    }
+  }
 
-body {
-  font-family: var(--mainFont);
+  body {
+    font-family: var(--mainFont);
+  }
+
+  img,
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
 }
